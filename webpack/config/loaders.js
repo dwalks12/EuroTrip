@@ -22,7 +22,7 @@ export default [
   },
 
 	{
-		test: /images\/.*\.(gif|png|jpg|svg)$/,
+		test: /images\/.*\.(gif|png|jpg|svg|JPG)$/,
 		loaders: [
 			`url?limit=10000&name=${assetName}`,
 			'image-webpack?{progressive: true, optimizationLevel: 7, interlaced: true, pngquant:{quality: "65-90", speed: 4}}',

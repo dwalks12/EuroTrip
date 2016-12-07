@@ -3,7 +3,7 @@ import { StyleSheet, css } from 'styling';
 //import { colors } from 'styling/variables';
 //import * as colorutil from 'utility/color';
 import Helmet from 'react-helmet';
-
+import image from '../../assets/images/cover_image.jpg';
 // import models from 'data/models';
 // import { ModelpageLink, PageLink } from 'containers/Link';
 //import { pages } from 'data/routes';
@@ -22,12 +22,13 @@ export default class FrontPage extends Component {
 
 
 	render() {
+
 		return (
 			<div>
 				<Helmet title='EuroTrip 2016' />
 
 				<div className={css(styles.dealerMetaContainer)}>
-					<img className={css(styles.bannerImage)} src='/assets/images/cover_image.JPG'/>
+					<img className={css(styles.bannerImage)} src={image}/>
 				</div>
 				<div className={css(styles.carouselContainer)}>
 					<div className={css(styles.gridCarText)}>
