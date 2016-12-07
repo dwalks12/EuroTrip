@@ -20,13 +20,13 @@ export default [
   new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
     minChunks: Infinity,
-    filename: 'vendor.[hash].bundle.js',
+    filename: 'vendor.bundle.js',
   }),
 
 	new webpack.optimize.OccurenceOrderPlugin(),
 	new webpack.optimize.DedupePlugin(),
 
-	new ExtractTextPlugin('[name].[hash].css'),
+	new ExtractTextPlugin('[name].css'),
 
   new HtmlWebpackPlugin({
     inject: 'body',

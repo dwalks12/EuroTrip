@@ -27,7 +27,7 @@ const config = {
 	},
 	output: {
 		path: path.join(ROOT_PATH, 'web'),
-		filename: '[name].[hash].bundle.js',
+		filename: '[name].bundle.js',
 	},
 	resolve: {
 		extensions: ['', '.js', '.jsx'],
