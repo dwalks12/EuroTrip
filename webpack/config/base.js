@@ -26,7 +26,7 @@ const config = {
 		],
 	},
 	output: {
-		path: path.join(ROOT_PATH, 'web'),
+		path: path.join(ROOT_PATH, './src/html/index.html'),
 		filename: '[name].bundle.js',
 	},
 	resolve: {
