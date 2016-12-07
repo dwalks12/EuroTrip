@@ -1,1 +1,1 @@
-web: ./builds/test/index.html
+web: npm run server.js
