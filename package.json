@@ -1,7 +1,7 @@
 {
-  "name": "elizabeth",
+  "name": "Eurotrip",
   "version": "1.0.0",
-  "description": "Timache global",
+  "description": "Eurotrip",
   "scripts": {
     "dev": "npm start",
     "start": "npm run clean && nodemon -x babel-node -- webpack/devserver.js ",
@@ -20,7 +20,7 @@
     "dummy": "echo 'Trailing commas are nice.'"
   },
   "siteConfig": {
-    "basename": "Timache",
+    "basename": "EuroTrip",
     "country": "en",
     "devPort": "8080"
   },
