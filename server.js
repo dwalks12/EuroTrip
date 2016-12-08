@@ -72,7 +72,7 @@ app.post('/images', function(req, res) {
   var newImage = req.body;
   newImage.createdAt = new Date();
   if(!(req.body.createdBy)) {
-    handleError(res, 'Invalid user input', 'Must provide a createdBy name.', 400);
+    handleError(res, 'Invalid user input', 'Must provide a createdBy name.'+req.body, 400);
   }
   db.collection(IMAGES_COLLECTION).insertOne(newContact, function(err, doc) {
     if(err) {
