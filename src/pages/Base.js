@@ -48,7 +48,7 @@ export default class Base extends Component {
 				</Link>
 				<Link
 					className={css(styles.menuItem)}
-					to={'404'}>
+					to={'image'}>
 					{'Pictures'}
 				</Link>
 				<Link

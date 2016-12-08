@@ -44,7 +44,7 @@ export default class App extends Component {
 				<Route path='/' getComponent={page('Base')}>
 					{ PageRoutes }
 					<IndexRoute getComponent={page('Front')} />
-
+					<Route path ='image' getComponent={page('Image')}/>
 					<Route path='404' getComponent={page('404')} />
 					<Redirect from='**' to='404' />
 				</Route>
