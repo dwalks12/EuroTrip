@@ -56,16 +56,6 @@ export default class Base extends Component {
 					to={'/gallery'}>
 					{'Gallery'}
 				</Link>
-				<Link
-					className={css(styles.menuItem)}
-					to={'/404'}>
-					{'About'}
-				</Link>
-				<Link
-					className={css(styles.menuItem)}
-					to={'/404'}>
-					{'Log in'}
-				</Link>
 			</div>
 				<div className={css(styles.content)}>
 					{ this.props.children }
