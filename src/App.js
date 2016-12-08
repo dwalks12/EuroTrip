@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react';
 // import cookies from 'cookies-js';
 import _ from 'lodash';
 
-import routes from './data/routes';
+import routes from './data/routes.js';
 //import Analytics from 'utility/analytics';
 
 import Router from 'react-router/lib/Router';
@@ -55,7 +55,7 @@ export default class App extends Component {
 
 const page = (page) => (location, cb) => {
 	require.ensure([], (require) => {
-		cb(null, require('pages/' + page).default);
+		cb(null, require('./pages/' + page).default);
 	});
 };
 
