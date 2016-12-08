@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { createHistory } from 'history';
 import useScroll from 'scroll-behavior/lib/useStandardScroll';
 
-var BrowserHistory = require('react-router/lib/BrowserHistory').default;
+var BrowserHistory = require('react-router/lib/browserHistory').default;
 import shouldUpdateScroll from './utility/shouldUpdateScroll';
 import { useRouterHistory, browserHistory } from 'react-router';
 import App from './App';
