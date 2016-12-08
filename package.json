@@ -3,24 +3,9 @@
   "version": "1.0.0",
   "description": "Eurotrip",
   "scripts": {
-    "dev": "npm start",
-    "test": "http-server -p 3000 .",
-    "build:this": "webpack-dev-server",
-    "watch": "webpack-dev-server --hot --progress --colors",
-    "start": "node server ",
-    "lint": "eslint src webpack --ignore-path .gitignore",
-    "clean": "./scripts/clean_build.sh",
-    "clean:cache": "CLEAN_CACHE_ONLY=1 ./scripts/clean_build.sh",
-    "build:client": "node webpack/compiler.node.js",
-    "build:static": "./scripts/build_static.sh",
-    "build": "npm run clean && npm run build:client && npm run build:static",
-    "build:test": "OUTPUT_FOLDER=builds/test NODE_ENV=staging    ./scripts/make_build.sh",
-    "build:live": "OUTPUT_FOLDER=builds/live NODE_ENV=production ./scripts/make_build.sh",
-    "deploy:test": "./scripts/make_deploy.sh test",
-    "deploy:live": "./scripts/make_deploy.sh live",
-    "translation:generate": "babel-node scripts/translation_generate.js",
-    "translation:build": "babel-node scripts/translation_build.js",
-    "dummy": "echo 'Trailing commas are nice.'"
+    "start": "node server",
+    "production": "NODE_ENV=production webpack -p --config webpack.production.config.js",
+    "postinstall": "node deploy"
   },
   "siteConfig": {
     "basename": "EuroTrip",

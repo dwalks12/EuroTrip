@@ -1,26 +1,34 @@
+var Webpack = require('webpack');
 var path = require('path');
+var nodeModulesPath = path.resolve(__dirname, 'node_modules');
+var buildPath = path.resolve(__dirname, 'public', 'build');
+var mainPath = path.resolve(__dirname, 'app', 'main.js');
 
 var config = {
-  // context: path.join(__dirname, 'src'),
-  entry: {
-    js: ['babel-polyfill', './src/index.js']
-  },
+
+  // We change to normal source mapping
+  devtool: 'source-map',
+  entry: mainPath,
   output: {
-    path: path.join(__dirname, 'build/test/'),
-    filename: 'bundle.js',
+    path: buildPath,
+    filename: 'bundle.js'
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loaders: ['babel']
-      },
-      {
-        test: /\.svg$/,
-        loader: 'svg-inline'
-      }
-    ]
+    loaders: [{
+      test: /\.js$/,
+      loader: 'babel',
+      exclude: [nodeModulesPath]
+    },{
+      test: /\.css$/,
+      loader: 'style!css'
+    },
+    {
+        test: /\.(jpe?g|png|gif|svg)$/i,
+        loaders: [
+            'file?hash=sha512&digest=hex&name=[hash].[ext]',
+            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
+        ]
+    }]
   }
 };
 
