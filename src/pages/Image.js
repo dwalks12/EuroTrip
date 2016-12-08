@@ -98,7 +98,7 @@ export default class ImagePage extends Component {
         <div>
           <p className={css(styles.centered)} style={{display: this.state.success ? 'block' : 'none' }}> {'Image successfully uploaded'}</p>
         </div>
-        <div className={css(styles.centered)}>
+        <div className={css(styles.centered)} style={{display: this.state.success ? 'block' : 'none'}}>
           <img className={css(styles.postedImage)} src={this.state.uploadedFileCloudinaryUrl} />
         </div>
 				<div className={css(styles.paddingTop)}>
