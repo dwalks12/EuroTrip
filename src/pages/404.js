@@ -3,8 +3,8 @@ import Helmet from 'react-helmet';
 
 // import { Heading, Heading2 } from 'presentational/text';
 
-import { StyleSheet, css } from 'styling';
-import { colors } from 'styling/variables';
+import { StyleSheet, css } from '../styling/index.js';
+import { colors } from '../styling/variables';
 
 export default class FourOhFourPage extends Component {
   render() {

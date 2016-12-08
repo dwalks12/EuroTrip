@@ -3,13 +3,14 @@ import ReactDOM from 'react-dom';
 
 import { createHistory } from 'history';
 import useScroll from 'scroll-behavior/lib/useStandardScroll';
-import shouldUpdateScroll from 'utility/shouldUpdateScroll';
+
+import shouldUpdateScroll from './utility/shouldUpdateScroll';
 import { useRouterHistory } from 'react-router';
 import App from './App';
 
-import 'styling/global.css';
+import './styling/global.css';
 
-const basename = `/${BASENAME}`;
+const basename = `/index`;
 
 const history = useScroll(useRouterHistory(createHistory))({
 	basename,

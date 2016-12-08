@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, css } from 'styling';
+import { StyleSheet, css } from '../styling/index.js';
 //import { colors } from 'styling/variables';
 //import * as colorutil from 'utility/color';
 import Helmet from 'react-helmet';
-import image from '../../assets/images/cover_image.jpg';
+import image from '../../public/assets/images/cover_image.jpg';
 // import models from 'data/models';
 // import { ModelpageLink, PageLink } from 'containers/Link';
 //import { pages } from 'data/routes';

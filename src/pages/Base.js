@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import { StyleSheet, css } from 'styling';
-import { breakpoints, marginsAtWidth, webFonts } from 'styling/variables';
+import { StyleSheet, css } from '../styling/index.js';
+import { breakpoints, marginsAtWidth, webFonts } from '../styling/variables';
 // import { country } from 'config';
 
 import Helmet from 'react-helmet';
 
-import FontLoader from 'containers/FontLoader';
+import FontLoader from '../containers/FontLoader';
 // import TopMenu from 'containers/TopMenuContainer';
 // import OpenTopMenu from 'modules/OpenTopMenu';
 // import FooterMenu from 'modules/FooterMenu';

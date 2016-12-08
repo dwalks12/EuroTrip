@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
-if [ -z $OUTPUT_FOLDER ]; then
-	OUTPUT_FOLDER="web";
-fi
 
-mkdir -p "$OUTPUT_FOLDER"
+OUTPUT_FOLDER="builds/test";
 
-cp -r src/static/. "$OUTPUT_FOLDER/"
 
-if [ "$NODE_ENV" = "production" ] || [ "$NODE_ENV" = "staging" ]; then
-	cp -f src/static/.htaccess.prod "$OUTPUT_FOLDER/.htaccess"
-fi
+mkdir -p "builds/test"
+
+sudo cp -r src/index.html "builds/test"
+
+sudo cp -r src/assets/ "builds/test/assets"
+
+
+sudo cp -r src/styling/. "builds/test/styling"
 
 echo "Static build done!"
