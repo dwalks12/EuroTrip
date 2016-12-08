@@ -1,22 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from '../styling/index.js';
-//import { colors } from 'styling/variables';
-//import * as colorutil from 'utility/color';
+
 import Helmet from 'react-helmet';
 import image from '../images/cover_image.jpg';
-// import models from 'data/models';
-// import { ModelpageLink, PageLink } from 'containers/Link';
-//import { pages } from 'data/routes';
-// import ProvideDealerMeta from 'containers/ProvideDealerMeta';
-// import { ProvideTextScope } from 'containers/Text';
 
-// import DealerInfo from 'modules/DealerInfo';
-// import Async from 'containers/Async';
-// import Carousel from 'presentational/Carousel';
-// import CTA from 'presentational/CTA';
-// import Banner from 'presentational/BannerWithTextsAndCta';
-// import GridWithCarsAndBox from 'containers/GridWithCarsAndBoxContainer';
-// import { Heading, Body } from 'presentational/text';
 export default class FrontPage extends Component {
 	static propTypes = {}
 
