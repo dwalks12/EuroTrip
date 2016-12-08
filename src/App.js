@@ -11,7 +11,8 @@ import Router from 'react-router/lib/Router';
 import Route from 'react-router/lib/Route';
 import IndexRoute from 'react-router/lib/IndexRoute';
 import Redirect from 'react-router/lib/Redirect';
-
+//polyfill webpack require.ensure
+if (typeof require.ensure !== 'function') require.ensure = (d, c) => c(require)
 export default class App extends Component {
 	static propTypes = {
 		history: PropTypes.object.isRequired,
