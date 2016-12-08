@@ -31,6 +31,9 @@ var config = {
         }
     }]
   },
+  devServer: {
+     historyApiFallback: true
+ },
   plugins: [ new Webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false

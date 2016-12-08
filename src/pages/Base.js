@@ -43,27 +43,27 @@ export default class Base extends Component {
 			<div className={css(styles.top)}>
 				<Link
 					className={css(styles.menuItem)}
-					to={'front'}>
+					to={'/'}>
 						{'Home'}
 				</Link>
 				<Link
 					className={css(styles.menuItem)}
-					to={'image'}>
-					{'Pictures'}
+					to={'/image'}>
+					{'Upload'}
 				</Link>
 				<Link
 					className={css(styles.menuItem)}
-					to={'gallery'}>
+					to={'/gallery'}>
 					{'Gallery'}
 				</Link>
 				<Link
 					className={css(styles.menuItem)}
-					to={'404'}>
+					to={'/404'}>
 					{'About'}
 				</Link>
 				<Link
 					className={css(styles.menuItem)}
-					to={'404'}>
+					to={'/404'}>
 					{'Log in'}
 				</Link>
 			</div>

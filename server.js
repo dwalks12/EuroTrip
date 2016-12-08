@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cors({credentials:true, origin:true}));
+
 //we only want to run workflow when not in production
 if(!isProduction) {
   //we require bundler because

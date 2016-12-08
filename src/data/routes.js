@@ -1,9 +1,8 @@
 export const pages = {
-	front: '/Front',
+	front: '/index',
 	404: '/404',
-	base: '/',
-	image: '/Image',
-	gallery: '/Gallery',
+	image: '/image',
+	gallery: '/gallery',
 };
 
 export default {pages};

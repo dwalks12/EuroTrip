@@ -5,12 +5,12 @@ import { createHistory } from 'history';
 import useScroll from 'scroll-behavior/lib/useStandardScroll';
 
 import shouldUpdateScroll from './utility/shouldUpdateScroll';
-import { useRouterHistory } from 'react-router';
+import { useRouterHistory, browserHistory } from 'react-router';
 import App from './App';
 
 import './styling/global.css';
 
-const basename = `/index`;
+const basename = ``;
 
 const history = useScroll(useRouterHistory(createHistory))({
 	basename,
@@ -22,7 +22,7 @@ const root = document.getElementById('root');
 const render = () => {
 	const WrappedApp = () =>
 		<div>
-			<App history={history} />
+			<App history={browserHistory} />
 		</div>
 	;
 

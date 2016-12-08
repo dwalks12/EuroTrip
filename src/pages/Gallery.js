@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, css } from '../styling/index.js';
 import Helmet from 'react-helmet';
 import $ from 'jquery';
-const postURL = 'https://eurotrip2016.herokuapp.com'; // for local testing.'http://localhost:3000';//
+const postURL = 'http://localhost:3000';//'https://eurotrip2016.herokuapp.com'; // for local testing.'http://localhost:3000';//
 export default class GalleryPage extends Component {
 	static propTypes = {}
   constructor(props) {
@@ -47,7 +47,7 @@ export default class GalleryPage extends Component {
     console.log(images);
     if(images.length > 0) {
       return images.map((images, index) => (
-        <img src={images} key={index} />
+        <img className={css(styles.galleryImages)} src={images} key={index} />
       ))
     } else {
       return [];
@@ -71,7 +71,16 @@ export default class GalleryPage extends Component {
 }
 
 const styles = StyleSheet.create({
-
+  galleryImages: {
+    objectFit: 'cover',
+    overflow: 'hidden',
+    width: '300px',
+    height: '300px',
+    margin: '10 10 10 10',
+    borderStyle: 'solid',
+    borderColor: 'black',
+    borderWidth: '5px',
+  },
 	paddingTop: {
 		paddingTop: 0,
 	},

@@ -36,17 +36,19 @@ export default class App extends Component {
   }
 
 	render() {
+		console.log(this.props.history);
 		return (
 			<Router history={this.props.history}>
 				{/* Trailing slashes are ☹️ */}
 				<Redirect from='**/' to=':splat' />
 
 				<Route path='/' getComponent={page('Base')}>
-					{ PageRoutes }
 					<IndexRoute getComponent={page('Front')} />
-					<Route path ='image' getComponent={page('Image')}/>
+					<Route path='image' getComponent={page('Image')}/>
 					<Route path='gallery' getComponent={page('Gallery')}/>
 					<Route path='404' getComponent={page('404')} />
+					// { PageRoutes }
+
 					<Redirect from='**' to='404' />
 				</Route>
 

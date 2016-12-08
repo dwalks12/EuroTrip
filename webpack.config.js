@@ -3,7 +3,7 @@ var path = require('path');
 var nodeModulesPath = path.resolve(__dirname, 'node_modules');
 var buildPath = path.resolve(__dirname, 'public', 'build');
 var mainPath = path.resolve(__dirname, 'src', 'entry.js');
-
+console.log('using dev');
 var config = {
   // Makes sure errors in console map to the correct file
   // and line number
@@ -60,6 +60,9 @@ var config = {
 
     ]
   },
+  devServer: {
+     historyApiFallback: true
+ },
 
   // We have to manually add the Hot Replacement plugin when running
   // from Node
