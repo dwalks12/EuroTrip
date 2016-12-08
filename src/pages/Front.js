@@ -19,9 +19,7 @@ export default class FrontPage extends Component {
 				<div className={css(styles.carouselContainer)}>
 					<div className={css(styles.gridCarText)}>
 					</div>
-
 				</div>
-
 				<div className={css(styles.paddingTop)}>
 				</div>
 			</div>
