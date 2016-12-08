@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, css } from '../styling/index.js';
 import Helmet from 'react-helmet';
 import $ from 'jquery';
-const postURL = 'https://eurotrip2016.herokuapp.com'; // for local testing.'http://localhost:3000';//
+const postURL = 'http://localhost:3000';//'https://eurotrip2016.herokuapp.com'; // for local testing.'http://localhost:3000';//
 export default class GalleryPage extends Component {
 	static propTypes = {}
   constructor(props) {
@@ -60,7 +60,7 @@ export default class GalleryPage extends Component {
 			<div>
 				<Helmet title='EuroTrip 2016' />
 
-				<div>
+				<div className={css(styles.centerItems)}>
           {images}
         </div>
 				<div className={css(styles.paddingTop)}>
@@ -71,6 +71,10 @@ export default class GalleryPage extends Component {
 }
 
 const styles = StyleSheet.create({
+  centerItems: {
+    margin: 'auto',
+    textAlign: 'center',
+  },
   galleryImages: {
     objectFit: 'cover',
     overflow: 'hidden',
