@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from '../styling/index.js';
 import Helmet from 'react-helmet';
-import image from '../images/cover_image.jpg';
 
 export default class FrontPage extends Component {
 	static propTypes = {}
@@ -15,7 +14,7 @@ export default class FrontPage extends Component {
 				<Helmet title='EuroTrip 2016' />
 
 				<div className={css(styles.dealerMetaContainer)}>
-					<img className={css(styles.bannerImage)} src={image}/>
+					<img className={css(styles.bannerImage)} src={'../images/cover_image.jpg'}/>
 				</div>
 				<div className={css(styles.carouselContainer)}>
 					<div className={css(styles.gridCarText)}>
