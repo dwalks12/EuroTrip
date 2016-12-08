@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import { createHistory } from 'history';
 import useScroll from 'scroll-behavior/lib/useStandardScroll';
 
+var BrowserHistory = require('react-router/lib/BrowserHistory').default;
 import shouldUpdateScroll from './utility/shouldUpdateScroll';
 import { useRouterHistory, browserHistory } from 'react-router';
 import App from './App';
@@ -22,7 +23,7 @@ const root = document.getElementById('root');
 const render = () => {
 	const WrappedApp = () =>
 		<div>
-			<App history={browserHistory} />
+			<App history={BrowserHistory} />
 		</div>
 	;
 
