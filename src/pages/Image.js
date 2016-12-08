@@ -62,7 +62,7 @@ export default class ImagePage extends Component {
   }
 
   handlePostSuccess(data) {
-  
+
     if(data) {
       this.setState({
         success: true,
@@ -90,11 +90,11 @@ export default class ImagePage extends Component {
           multiple={false}
           accept="image/*"
           onDrop={this.onImageDrop.bind(this)}>
-          <p className={css(styles.centerAlign)}>{'Drop your image here or click here to select a file to upload.'}</p>
+          <p style={{marginBottom: '20px'}} className={css(styles.centerAlign)}>{'Drop your image here or click here to select a file to upload.'}</p>
         </Dropzone>
         </div>
         {loadingSpinner}
-        <div>
+        <div style={{marginBottom: '20px'}} >
           <p className={css(styles.centered)} style={{display: this.state.success ? 'block' : 'none' }}> {'Image successfully uploaded'}</p>
         </div>
         <div className={css(styles.centered)} style={{display: this.state.success ? 'block' : 'none'}}>

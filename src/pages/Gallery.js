@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from '../styling/index.js';
 import Helmet from 'react-helmet';
+import {merge,swing,rollOut,rotateIn, rotateOut, pulse,shake, flash, bounce, rubberBand, jello} from 'react-animations';
 import $ from 'jquery';
+const animation = merge(rotateOut, rotateIn);
 const postURL = 'https://eurotrip2016.herokuapp.com'; // for local testing.'http://localhost:3000';//
 export default class GalleryPage extends Component {
 	static propTypes = {}
@@ -66,7 +68,7 @@ export default class GalleryPage extends Component {
     console.log(images);
     if(images.length > 0) {
       return images.map((images, index) => (
-        <img className={css(styles.galleryImages)} src={images.imageUrl} key={index} onClick={() => this.deleteImage(images._id, index)}/>
+        <div key={`${index}-div1`}><div key={`${index}-div3`} className={css(styles.closeIcon)} onClick={() => this.deleteImage(images._id, index)}></div><img className={css(styles.galleryImages)} src={images.imageUrl} key={index} ></img></div>
       ))
     } else {
       return [];
@@ -93,6 +95,11 @@ const styles = StyleSheet.create({
   centerItems: {
     margin: 'auto',
     textAlign: 'center',
+    display: 'flex',
+    width: '100%',
+    alignItems: 'center',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
   },
   galleryImages: {
     objectFit: 'cover',
@@ -103,6 +110,28 @@ const styles = StyleSheet.create({
     borderStyle: 'solid',
     borderColor: 'black',
     borderWidth: '5px',
+  },
+  closeIcon: {
+    position: 'absolute',
+    display:'block',
+    boxSizing:'border-box',
+    width:'20px',
+    height:'20px',
+    borderWidth:'3px',
+    borderStyle: 'solid',
+    borderColor:'black',
+    borderRadius:'100%',
+    background: '-webkit-linear-gradient(-45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%), -webkit-linear-gradient(45deg, transparent 0%, transparent 46%, white 46%,  white 56%,transparent 56%, transparent 100%)',
+    backgroundColor:'black',
+    boxShadow:'0px 0px 5px 2px rgba(0,0,0,0.5)',
+    transition: 'all 0.3s ease',
+    cursor: 'pointer',
+    ':hover': {
+      animationName: animation,
+      animationDuration: '1s',
+      animationIterationCount: 'infinite',
+    },
+
   },
 	paddingTop: {
 		paddingTop: 0,
