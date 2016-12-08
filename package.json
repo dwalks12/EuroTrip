@@ -4,8 +4,8 @@
   "description": "Eurotrip",
   "scripts": {
     "start": "node server",
-    "production": "NODE_ENV=production webpack -p --config webpack.production.config.js",
-    "postinstall": "node deploy"
+    "postinstall": "node deploy",
+    "production": "NODE_ENV=production webpack -p --config webpack.production.config.js"  
   },
   "siteConfig": {
     "basename": "EuroTrip",
