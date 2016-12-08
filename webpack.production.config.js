@@ -24,11 +24,11 @@ var config = {
       loader: 'style!css'
     },
     {
-        test: /\.(jpe?g|png|gif|svg)$/i,
-        loaders: [
-            'file?hash=sha512&digest=hex&name=[hash].[ext]',
-            'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
-        ]
+        test: /\.(jpg|png|gif|svg)$/i,
+        loader: 'file-loader',
+        query: {
+          limit: 10000
+        }
     }]
   },
   plugins: [ new Webpack.optimize.UglifyJsPlugin({
