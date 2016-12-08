@@ -17,7 +17,6 @@ export default class GalleryPage extends Component {
   }
 
   getImages() {
-    console.log('getting images');
     $.ajax({
       type: 'GET',
       url: postURL + '/images',
@@ -27,7 +26,6 @@ export default class GalleryPage extends Component {
     });
   }
   handlePostSuccess(data) {
-    console.log(data);
     if(data.length > 0) {
       var urls = [];
       for(var item in data) {
@@ -44,7 +42,6 @@ export default class GalleryPage extends Component {
     console.log(err);
   }
   handleDeleteSuccess( theIndex, data) {
-    console.log('success', data, theIndex);
 
     var tempArray = this.state.imageUrls.filter(function(el, index) {
       return index !== theIndex;
@@ -57,7 +54,6 @@ export default class GalleryPage extends Component {
     console.log(err);
   }
   deleteImage(imageId, index) {
-    console.log('deleting image', imageId);
     $.ajax({
       type: 'DELETE',
       url: postURL+ '/images/' + imageId,
@@ -78,7 +74,7 @@ export default class GalleryPage extends Component {
   }
 	render() {
     const images = this.renderImages(this.state.imageUrls);
-    console.log(images);
+
 		return (
 			<div>
 				<Helmet title='EuroTrip 2016' />

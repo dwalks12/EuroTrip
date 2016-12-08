@@ -62,7 +62,7 @@ export default class ImagePage extends Component {
   }
 
   handlePostSuccess(data) {
-    console.log(data);
+  
     if(data) {
       this.setState({
         success: true,
@@ -76,7 +76,6 @@ export default class ImagePage extends Component {
   }
 
 	render() {
-    console.log(this.state.loading);
     const loadingSpinner = <div style={{display: this.state.loading ? 'inline-block' : 'none'}} className={css(styles.gradientWrapper)}>{'Uploading Image'}</div>
 		return (
 			<div>
