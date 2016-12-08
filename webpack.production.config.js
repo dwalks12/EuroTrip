@@ -35,7 +35,10 @@ var config = {
         compress: {
           warnings: false
         }
-      })]
+      }), new Webpack.DefinePlugin({
+            __PROD__: isProduction,
+            __WEBPACK_SERVER__: true
+        })]
 };
 
 module.exports = config;

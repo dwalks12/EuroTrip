@@ -55,9 +55,14 @@ export default class App extends Component {
 }
 
 const page = (page) => (location, cb) => {
-	require.ensure([], (require) => {
-		cb(null, require('./pages/' + page).default);
-	});
+	if (__WEBPACK_SERVER__) {
+    cb(null, require('./pages/' + page).default);
+  } else {
+		require.ensure([], (require) => {
+			cb(null, require('./pages/' + page).default);
+		});
+	}
+
 };
 
 const PageRoutes = Object.keys(routes.pages).map(pageId => {
