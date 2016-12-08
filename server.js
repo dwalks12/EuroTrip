@@ -7,12 +7,11 @@ var app = express();
 var router = express.Router();
 var mongodb = require('mongodb');
 var ObjectId = mongodb.ObjectID;
-
-var IMAGES_COLLECTION = 'images;'
+var cors = require('cors');
+var IMAGES_COLLECTION = 'images'
 var isProduction = process.env.NODE_ENV === 'production';
 var port = isProduction ? process.env.PORT : 3000;
 var publicPath = path.resolve(__dirname, 'public');
-
 
 //Point to static assets
 
@@ -20,6 +19,9 @@ app.use(express.static(publicPath));
 
 app.use(bodyParser.json());
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cors({credentials:true, origin:true}));
 //we only want to run workflow when not in production
 if(!isProduction) {
   //we require bundler because
@@ -74,7 +76,8 @@ app.post('/images', function(req, res) {
   if(!(req.body.createdBy)) {
     handleError(res, 'Invalid user input', 'Must provide a createdBy name.'+req.body[0], 400);
   }
-  db.collection(IMAGES_COLLECTION).insertOne(newContact, function(err, doc) {
+  console.log(req.body);
+  db.collection(IMAGES_COLLECTION).insertOne(newImage, function(err, doc) {
     if(err) {
       handleError(res, err.message, 'Failed to create image');
     } else {
