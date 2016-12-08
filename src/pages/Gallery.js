@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, css } from '../styling/index.js';
 import Helmet from 'react-helmet';
 import $ from 'jquery';
-const postURL = 'http://localhost:3000';//'https://eurotrip2016.herokuapp.com'; // for local testing.'http://localhost:3000';//
+const postURL = 'https://eurotrip2016.herokuapp.com'; // for local testing.'http://localhost:3000';//
 export default class GalleryPage extends Component {
 	static propTypes = {}
   constructor(props) {

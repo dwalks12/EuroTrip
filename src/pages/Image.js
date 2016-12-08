@@ -3,7 +3,9 @@ import { StyleSheet, css } from '../styling/index.js';
 import Helmet from 'react-helmet';
 import Dropzone from 'react-dropzone';
 import request from 'superagent';
+import {merge,swing,rollOut, rotateOut, pulse,shake, flash, bounce, rubberBand, jello} from 'react-animations';
 import $ from 'jquery';
+const animation = merge(flash, shake);
 const CLOUDINARY_UPLOAD_PRESET = 'upload';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/ddaohvlb0/upload';
 const postURL = 'https://eurotrip2016.herokuapp.com'; //'http://localhost:3000'; for local testing.
@@ -12,13 +14,16 @@ export default class ImagePage extends Component {
     super(props);
 
     this.state = {
-      uploadedFileCloudinaryUrl: ''
+      uploadedFileCloudinaryUrl: '',
+      success: false,
+      loading: false,
     };
   }
   onImageDrop(files) {
     this.setState({
       uploadedFile: files[0],
       success: false,
+      loading: true,
     });
     this.handleImageUpload(files[0]);
   }
@@ -43,13 +48,14 @@ export default class ImagePage extends Component {
           type: 'POST',
           url: postURL + '/images',
           data: postData,
-          success: this.handlePostSuccess,
+          success: this.handlePostSuccess(this),
           error: this.handlePostError,
           dataType: 'json',
         });
 
         this.setState({
-          uploadedFileCloudinaryUrl: response.body.secure_url
+          uploadedFileCloudinaryUrl: response.body.secure_url,
+
         });
       }
     });
@@ -60,6 +66,7 @@ export default class ImagePage extends Component {
     if(data) {
       this.setState({
         success: true,
+        loading: false,
       });
     }
   }
@@ -69,7 +76,8 @@ export default class ImagePage extends Component {
   }
 
 	render() {
-    console.log(postURL + '/images');
+    console.log(this.state.loading);
+    const loadingSpinner = <div style={{display: this.state.loading ? 'inline-block' : 'none'}} className={css(styles.gradientWrapper)}>{'Uploading Image'}</div>
 		return (
 			<div>
 				<Helmet title='EuroTrip 2016 Upload Images' />
@@ -86,8 +94,9 @@ export default class ImagePage extends Component {
           <p className={css(styles.centerAlign)}>{'Drop your image here or click here to select a file to upload.'}</p>
         </Dropzone>
         </div>
+        {loadingSpinner}
         <div>
-          <p style={{display: this.state.success ? 'block' : 'none' }}> {'Image successfully uploaded'}</p>
+          <p className={css(styles.centered)} style={{display: this.state.success ? 'block' : 'none' }}> {'Image successfully uploaded'}</p>
         </div>
         <div className={css(styles.centered)}>
           <img className={css(styles.postedImage)} src={this.state.uploadedFileCloudinaryUrl} />
@@ -107,6 +116,20 @@ const styles = StyleSheet.create({
 		marginRight: 'auto',
 		textAlign: 'center',
 	},
+  spinner: {
+    borderRadius: '40px',
+    background: 'white',
+    width: '80px',
+    height: '80px',
+  },
+  gradientWrapper: {
+    animationName: animation,
+    animationDuration: '5s',
+    animationIterationCount: 'infinite',
+    textAlign: 'center',
+    margin: 'auto',
+    width: '100%',
+  },
   increasedWidth: {
     width: '100%',
     height: '200px',
