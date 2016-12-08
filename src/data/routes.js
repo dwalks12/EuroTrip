@@ -1,5 +1,7 @@
 export const pages = {
-	front: '/',
+	front: '/Front',
+	404: '/404',
+	base: '/',
 };
 
 export default {pages};

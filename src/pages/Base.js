@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { StyleSheet, css } from '../styling/index.js';
 import { breakpoints, marginsAtWidth, webFonts } from '../styling/variables';
 // import { country } from 'config';
-
+import { Link, IndexLink } from 'react-router';
 import Helmet from 'react-helmet';
 
 import FontLoader from '../containers/FontLoader';
@@ -41,11 +41,31 @@ export default class Base extends Component {
 	renderPage() {
 		return <div>
 			<div className={css(styles.top)}>
-				<a className={css(styles.menuItem)} href=''>Home</a>
-				<a className={css(styles.menuItem)} href=''>Pictures</a>
-				<a className={css(styles.menuItem)} href=''>Videos</a>
-				<a className={css(styles.menuItem)} href=''>About</a>
-				<a className={css(styles.menuItem)} href=''>Log in</a>
+				<Link
+					className={css(styles.menuItem)}
+					to={'front'}>
+						{'Home'}
+				</Link>
+				<Link
+					className={css(styles.menuItem)}
+					to={'404'}>
+					{'Pictures'}
+				</Link>
+				<Link
+					className={css(styles.menuItem)}
+					to={'404'}>
+					{'Videos'}
+				</Link>
+				<Link
+					className={css(styles.menuItem)}
+					to={'404'}>
+					{'About'}
+				</Link>
+				<Link
+					className={css(styles.menuItem)}
+					to={'404'}>
+					{'Log in'}
+				</Link>
 			</div>
 				<div className={css(styles.content)}>
 					{ this.props.children }
@@ -118,17 +138,23 @@ const styles = StyleSheet.create({
 		fontFamily: 'futura',
 		color: 'black',
 		fontSize: '30px',
-		padding: '20px',
+		padding: '15px',
 		cursor: 'pointer',
 		':hover': {
 			color: 'grey',
 			textShadow: '0px 0px 2px white',
 			textDecoration: 'underline',
 		},
+		width: '15%',
+		textAlign: 'center',
 	},
 	top: {
 		paddingTop: 10,
 		paddingBottom: 10,
+		width: '100%',
+		margin: 'auto',
+		float: 'none',
 		textAlign: 'center',
+		display: 'inline-block',
 	},
 });
