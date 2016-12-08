@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from '../styling/index.js';
 import Helmet from 'react-helmet';
-// import image from '../images/cover_image.jpg';
+import image from '../images/cover_image.jpg';
 
 export default class FrontPage extends Component {
 	static propTypes = {}
 
 
 	render() {
-		const image = require('../images/cover_image.jpg');
+		
 
 		return (
 			<div>

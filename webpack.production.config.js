@@ -24,8 +24,8 @@ var config = {
       loader: 'style!css'
     },
     {
-        test: /\.(jpg|png|gif|svg)$/i,
-        loader: 'file-loader',
+        test: /\.(jpg|png|gif|svg|otf)$/i,
+        loader: 'file-loader?context=public&name=./public/[path][name].[ext]',
         query: {
           limit: 10000
         }
