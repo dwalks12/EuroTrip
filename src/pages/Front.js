@@ -8,7 +8,7 @@ export default class FrontPage extends Component {
 
 
 	render() {
-		
+
 
 		return (
 			<div>
@@ -34,10 +34,14 @@ const styles = StyleSheet.create({
 	dealerMetaContainer: {
 		marginTop: '0.5rem',
 		marginBottom: '0',
+		marginLeft: 'auto',
+		marginRight: 'auto',
+		textAlign: 'center',
 	},
 	bannerImage: {
+		height: 'auto',
+		width: 'auto',
 		maxHeight: '600px',
-		width: '100%',
 	},
 	carouselContainer: {
 		position: 'relative',
