@@ -67,7 +67,13 @@ function handleError(res, reason, message, code) {
 }
 
 app.get('/images', function(req, res) {
-
+  db.collection(IMAGES_COLLECTION).find({}).toArray(function(err, docs) {
+    if(err) {
+      handleError(res, err.message, 'Failed to retrieve images');
+    } else {
+      res.status(200).json(docs);
+    }
+  });
 });
 
 app.post('/images', function(req, res) {

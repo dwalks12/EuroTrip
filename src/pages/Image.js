@@ -6,7 +6,7 @@ import request from 'superagent';
 import $ from 'jquery';
 const CLOUDINARY_UPLOAD_PRESET = 'upload';
 const CLOUDINARY_UPLOAD_URL = 'https://api.cloudinary.com/v1_1/ddaohvlb0/upload';
-const postURL = 'https://eurotrip2016.herokuapp.com';
+const postURL = 'https://eurotrip2016.herokuapp.com'; //'http://localhost:3000'; for local testing.
 export default class ImagePage extends Component {
   constructor(props) {
     super(props);
@@ -17,7 +17,8 @@ export default class ImagePage extends Component {
   }
   onImageDrop(files) {
     this.setState({
-      uploadedFile: files[0]
+      uploadedFile: files[0],
+      success: false,
     });
     this.handleImageUpload(files[0]);
   }
@@ -56,6 +57,11 @@ export default class ImagePage extends Component {
 
   handlePostSuccess(data) {
     console.log(data);
+    if(data) {
+      this.setState({
+        success: true,
+      });
+    }
   }
 
   handlePostFailure(error) {
@@ -79,6 +85,9 @@ export default class ImagePage extends Component {
           onDrop={this.onImageDrop.bind(this)}>
           <p className={css(styles.centerAlign)}>{'Drop your image here or click here to select a file to upload.'}</p>
         </Dropzone>
+        </div>
+        <div>
+          <p style={{display: this.state.success ? 'block' : 'none' }}> {'Image successfully uploaded'}</p>
         </div>
         <div className={css(styles.centered)}>
           <img className={css(styles.postedImage)} src={this.state.uploadedFileCloudinaryUrl} />

@@ -3,6 +3,7 @@ export const pages = {
 	404: '/404',
 	base: '/',
 	image: '/Image',
+	gallery: '/Gallery',
 };
 
 export default {pages};
