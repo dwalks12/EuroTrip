@@ -55,7 +55,7 @@ export default class App extends Component {
 
 const page = (page) => (location, cb) => {
 	require.ensure([], (require) => {
-		cb(null, require('./pages/' + page).default);
+		cb(null, require('pages/' + page).default);
 	});
 };
 
