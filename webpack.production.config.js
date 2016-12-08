@@ -30,7 +30,12 @@ var config = {
             'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false'
         ]
     }]
-  }
+  },
+  plugins: [ new Webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      })]
 };
 
 module.exports = config;
