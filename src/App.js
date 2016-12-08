@@ -55,13 +55,13 @@ export default class App extends Component {
 }
 
 const page = (page) => (location, cb) => {
-	if (__WEBPACK_SERVER__) {
+	// if (__WEBPACK_SERVER__) {
     cb(null, require('./pages/' + page).default);
-  } else {
-		require.ensure([], (require) => {
-			cb(null, require('./pages/' + page).default);
-		});
-	}
+  // } else {
+	// 	require.ensure([], (require) => {
+	// 		cb(null, require('./pages/' + page).default);
+	// 	});
+	// }
 
 };
 
