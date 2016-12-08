@@ -6,7 +6,7 @@ var proxy = httpProxy.createProxyServer();
 var app = express();
 var router = express.Router();
 var mongodb = require('mongodb');
-var ObjectId = mongodb.ObjectID;
+var ObjectID = mongodb.ObjectID;
 var cors = require('cors');
 var IMAGES_COLLECTION = 'images'
 var isProduction = process.env.NODE_ENV === 'production';
@@ -92,7 +92,15 @@ app.post('/images', function(req, res) {
     }
   });
 });
-
+app.delete('/images/:id', function(req, res) {
+  db.collection(IMAGES_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, results) {
+    if(err) {
+      handleError(res, err.message, "Failed to delete contact");
+    } else {
+      res.status(204).end();
+    }
+  })
+});
 // app.get('/images:id', function(req, res) {
 //
 // });

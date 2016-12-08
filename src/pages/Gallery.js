@@ -31,7 +31,7 @@ export default class GalleryPage extends Component {
     if(data.length > 0) {
       var urls = [];
       for(var item in data) {
-        urls.push(data[item].imageUrl);
+        urls.push(data[item]);
       }
 
       this.setState({
@@ -43,11 +43,34 @@ export default class GalleryPage extends Component {
   handlePostError(err) {
     console.log(err);
   }
+  handleDeleteSuccess( theIndex, data) {
+    console.log('success', data, theIndex);
+
+    var tempArray = this.state.imageUrls.filter(function(el, index) {
+      return index !== theIndex;
+    });
+    this.setState({
+      imageUrls: tempArray,
+    })
+  }
+  handleDeleteError(err) {
+    console.log(err);
+  }
+  deleteImage(imageId, index) {
+    console.log('deleting image', imageId);
+    $.ajax({
+      type: 'DELETE',
+      url: postURL+ '/images/' + imageId,
+      success: this.handleDeleteSuccess.bind(this, index),
+      error: this.handleDeleteError.bind(this),
+      dataType: 'json',
+    });
+  }
   renderImages(images) {
     console.log(images);
     if(images.length > 0) {
       return images.map((images, index) => (
-        <img className={css(styles.galleryImages)} src={images} key={index} />
+        <img className={css(styles.galleryImages)} src={images.imageUrl} key={index} onClick={() => this.deleteImage(images._id, index)}/>
       ))
     } else {
       return [];
