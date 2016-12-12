@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from '../styling/index.js';
 import Helmet from 'react-helmet';
+import LazyLoad from 'react-lazy-load';
 import { breakpoints, marginsAtWidth, webFonts } from '../styling/variables';
 import {merge,swing,rollOut,rotateIn, rotateOut, pulse,shake, flash, bounce, rubberBand, jello} from 'react-animations';
 import $ from 'jquery';
 const closeanimation = merge(rotateOut, rotateIn);
 const animation = merge(rotateOut, rotateIn);
-const postURL = 'https://eurotrip2016.herokuapp.com'; // for local testing.'http://localhost:3000';//
+const postURL = 'http://localhost:3000';//'https://eurotrip2016.herokuapp.com'; // for local testing.'http://localhost:3000';//
 export default class GalleryPage extends Component {
 	static propTypes = {}
   constructor(props) {
@@ -51,7 +52,6 @@ export default class GalleryPage extends Component {
     console.log(err);
   }
   handleDeleteSuccess( theIndex) {
-    console.log(theIndex);
     var tempArray = this.state.imageUrls.filter(function(el, index) {
       return index !== theIndex;
     });
@@ -93,13 +93,11 @@ export default class GalleryPage extends Component {
     });
   }
   handleLoginSuccess(data) {
-    console.log(data);
     if(data) {
       this.handleDelete();
     }
   }
   handleLoginFailure(error) {
-    console.log(error);
     this.setState({
       incorrect: true,
     });
@@ -126,7 +124,6 @@ export default class GalleryPage extends Component {
       });
 
     } else {
-      console.log('hello');
       this.setState({
         incorrect: true,
       });
@@ -144,10 +141,9 @@ export default class GalleryPage extends Component {
     })
   }
   renderImages(images) {
-    console.log(images);
     if(images.length > 0) {
       return images.map((images, index) => (
-        <div key={`${index}-div1`}><div key={`${index}-div3`} className={css(styles.closeIcon)} onClick={() => this.deleteImage(images._id, index)}></div><img className={css(styles.galleryImages)} src={images.imageUrl} key={index} ></img></div>
+        <div key={`${index}-div1`}><div key={`${index}-div3`} className={css(styles.closeIcon)} onClick={() => this.deleteImage(images._id, index)}></div><LazyLoad className={css(styles.marginIt)} height={300} offsetBottom={10}><img className={css(styles.galleryImages)} src={images.imageUrl} key={index} ></img></LazyLoad></div>
       ))
     } else {
       return [];
@@ -189,6 +185,9 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
 
+  },
+  marginIt: {
+    margin: '10 10 10 10',
   },
   submitButton: {
     cursor: 'pointer',
@@ -277,7 +276,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
     width: '300px',
     height: '300px',
-    margin: '10 10 10 10',
     borderStyle: 'solid',
     borderColor: 'black',
     borderWidth: '5px',

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from '../styling/index.js';
 import Helmet from 'react-helmet';
+import LazyLoad from 'react-lazy-load';
 import { breakpoints, marginsAtWidth, webFonts } from '../styling/variables';
 export default class FrontPage extends Component {
 	static propTypes = {}
@@ -14,7 +15,9 @@ export default class FrontPage extends Component {
 				<Helmet title='EuroTrip 2016' />
 
 				<div className={css(styles.dealerMetaContainer)}>
-					<img className={css(styles.bannerImage)} src={'../images/cover_image.jpg'}/>
+					<LazyLoad height={600}>
+						<img className={css(styles.bannerImage)} src={'../images/cover_image.jpg'}/>
+					</LazyLoad>
 					<h1 className={css(styles.frontHeader)}>{'Europe Trip 2016'}</h1>
 					<p style={{fontFamily: 'futura',}}>{'Just a bunch of guys Roming around'}</p>
 				</div>
