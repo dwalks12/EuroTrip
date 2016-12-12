@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from '../styling/index.js';
 import Helmet from 'react-helmet';
-
+import { breakpoints, marginsAtWidth, webFonts } from '../styling/variables';
 export default class FrontPage extends Component {
 	static propTypes = {}
 
@@ -16,14 +16,14 @@ export default class FrontPage extends Component {
 				<div className={css(styles.dealerMetaContainer)}>
 					<img className={css(styles.bannerImage)} src={'../images/cover_image.jpg'}/>
 					<h1 className={css(styles.frontHeader)}>{'Europe Trip 2016'}</h1>
-					<p>{'Just a bunch of guys Roming around'}</p>
+					<p style={{fontFamily: 'futura',}}>{'Just a bunch of guys Roming around'}</p>
 				</div>
 				<div className={css(styles.carouselContainer)}>
 					<div className={css(styles.gridCarText)}>
 					</div>
 				</div>
 				<div className={css(styles.paddingTop)}>
-					<p>{'Made by Dawson'}</p>
+
 				</div>
 			</div>
 		);
@@ -39,6 +39,7 @@ const styles = StyleSheet.create({
 		textAlign: 'center',
 	},
 	frontHeader: {
+		fontFamily: 'futura',
 		marginTop: '25px',
 		marginBottom: '15px',
 	},
@@ -46,6 +47,10 @@ const styles = StyleSheet.create({
 		height: 'auto',
 		width: 'auto',
 		maxHeight: '600px',
+		[`@media (max-width: ${ breakpoints.mdMin }px)`]: {
+			width: '100%',
+      margin: 'auto',
+		},
 	},
 	carouselContainer: {
 		position: 'relative',

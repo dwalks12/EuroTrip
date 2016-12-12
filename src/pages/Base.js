@@ -82,7 +82,7 @@ export default class Base extends Component {
 					: this.renderPage()
 				}
 				<div className={css(styles.footer)}>
-						<div>{'footer menu'}</div>
+						<div><p className={css(styles.footerHeader)}>{'Made by Dawson'}</p></div>
 				</div>
 			</div>
 		);
@@ -101,7 +101,12 @@ const styles = StyleSheet.create({
 			fontSize: '20px',
 		},
 	},
-
+	footerHeader: {
+		color: 'white',
+		paddingTop: '150px',
+		paddingLeft: '50px',
+		fontFamily: 'futura',
+	},
 	base: {
 		width: '100%',
 		margin: '0 auto',
@@ -124,7 +129,7 @@ const styles = StyleSheet.create({
 		},
 	},
 	menuItem: {
-		fontWeight: 'bold',
+		fontWeight: 'normal',
 		fontFamily: 'futura',
 		color: 'black',
 		fontSize: '30px',

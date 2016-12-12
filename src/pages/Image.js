@@ -169,7 +169,7 @@ export default class ImagePage extends Component {
 				<Helmet title='EuroTrip 2016 Upload Images' />
         {CheckAuthModal}
 				<div className={css(styles.dealerMetaContainer)}>
-					<h1>{'Import Your image here'}</h1>
+					<h1 style={{fontFamily: 'futura'}}>{'Import Your image here'}</h1>
 				</div>
         <div className={css(styles.imageDropArea)}>
 				<Dropzone
@@ -177,7 +177,7 @@ export default class ImagePage extends Component {
           multiple={false}
           accept="image/*"
           onDrop={this.onImageDrop.bind(this)}>
-          <p style={{marginBottom: '20px'}} className={css(styles.centerAlign)}>{'Drop your image here or click here to select a file to upload.'}</p>
+          <p style={{marginBottom: '20px', fontFamily: 'futura'}} className={css(styles.centerAlign)}>{'Drop your image here or click here to select a file to upload.'}</p>
         </Dropzone>
         </div>
         {loadingSpinner}
@@ -325,10 +325,15 @@ const styles = StyleSheet.create({
     width: '80%',
   },
   postedImage: {
-    width: '500px',
-    height: 'auto',
     margin: 'auto',
     textAlign: 'center',
+    objectFit: 'cover',
+    overflow: 'hidden',
+    width: '300px',
+    height: '300px',
+    borderStyle: 'solid',
+    borderColor: 'black',
+    borderWidth: '5px',
   },
   imageDropArea: {
     width: '450px',
