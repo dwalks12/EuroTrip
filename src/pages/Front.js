@@ -15,7 +15,7 @@ export default class FrontPage extends Component {
 				<Helmet title='EuroTrip 2016' />
 
 				<div className={css(styles.dealerMetaContainer)}>
-					<LazyLoad height={600}>
+					<LazyLoad>
 						<img className={css(styles.bannerImage)} src={'../images/cover_image.jpg'}/>
 					</LazyLoad>
 					<h1 className={css(styles.frontHeader)}>{'Europe Trip 2016'}</h1>
