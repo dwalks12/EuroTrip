@@ -8,7 +8,8 @@ var router = express.Router();
 var mongodb = require('mongodb');
 var ObjectID = mongodb.ObjectID;
 var cors = require('cors');
-var IMAGES_COLLECTION = 'images'
+var IMAGES_COLLECTION = 'images';
+var LOGIN_COLLECTION = 'login';
 var isProduction = process.env.NODE_ENV === 'production';
 var port = isProduction ? process.env.PORT : 3000;
 var publicPath = path.resolve(__dirname, 'public');
@@ -40,7 +41,6 @@ if(!isProduction) {
 var db;
 var DATABASE_URL = process.env.MONGODB_URI ? process.env.MONGODB_URI : 'mongodb://Dawson:Pokemon1@ds127938.mlab.com:27938/heroku_bj9c2mnh';
 
-console.log(DATABASE_URL);
 mongodb.MongoClient.connect(DATABASE_URL, function (err, database) {
   if(err) {
     console.log(err);
@@ -48,7 +48,6 @@ mongodb.MongoClient.connect(DATABASE_URL, function (err, database) {
   }
 
   db = database;
-  console.log("Successfully connected to database");
   //important to catch any errors from proxy or server will crash
 
 });
@@ -77,6 +76,23 @@ app.get('/images', function(req, res) {
   });
 });
 
+app.post('/login', function(req, res) {
+  var loginCredentials = req.body;
+  db.collection(LOGIN_COLLECTION).findOne({loginId: '1'}, function(err, results) {
+    if(err) {
+      handleError(res, err.message, 'Database Error');
+    } else {
+      // console.log(results, results.username, results.password, req.body, req.body.password, req.body.username);
+      if(results && results.username === req.body.username && results.password === req.body.password) {
+        // console.log('success');
+        res.status(201).json({'success': true});
+      } else {
+        handleError(res, 'Incorrect Login Credentials');
+      }
+    }
+  });
+
+});
 app.post('/images', function(req, res) {
   var newImage = req.body;
   newImage.createdAt = new Date();

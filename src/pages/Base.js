@@ -137,6 +137,10 @@ const styles = StyleSheet.create({
 		},
 		width: '15%',
 		textAlign: 'center',
+		[`@media (max-width: ${ breakpoints.smMin }px)`]: {
+			fontSize: '17px !important',
+			padding: '10px',
+		},
 	},
 	top: {
 		paddingTop: 10,

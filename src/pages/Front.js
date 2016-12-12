@@ -15,12 +15,15 @@ export default class FrontPage extends Component {
 
 				<div className={css(styles.dealerMetaContainer)}>
 					<img className={css(styles.bannerImage)} src={'../images/cover_image.jpg'}/>
+					<h1 className={css(styles.frontHeader)}>{'Europe Trip 2016'}</h1>
+					<p>{'Just a bunch of guys Roming around'}</p>
 				</div>
 				<div className={css(styles.carouselContainer)}>
 					<div className={css(styles.gridCarText)}>
 					</div>
 				</div>
 				<div className={css(styles.paddingTop)}>
+					<p>{'Made by Dawson'}</p>
 				</div>
 			</div>
 		);
@@ -30,10 +33,14 @@ export default class FrontPage extends Component {
 const styles = StyleSheet.create({
 	dealerMetaContainer: {
 		marginTop: '0.5rem',
-		marginBottom: '0',
+		marginBottom: '10px',
 		marginLeft: 'auto',
 		marginRight: 'auto',
 		textAlign: 'center',
+	},
+	frontHeader: {
+		marginTop: '25px',
+		marginBottom: '15px',
 	},
 	bannerImage: {
 		height: 'auto',
